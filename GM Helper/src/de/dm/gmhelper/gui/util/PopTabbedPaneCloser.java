@@ -1,4 +1,4 @@
-package de.dm.gmhelper.gui.notes;
+package de.dm.gmhelper.gui.util;
 
 import javax.swing.JPopupMenu;
 import javax.swing.JMenuItem;
@@ -7,16 +7,19 @@ import javax.swing.JTabbedPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PopFastNotesPane extends JPopupMenu {
-	public PopFastNotesPane(JTabbedPane pane) {
-		
+public class PopTabbedPaneCloser extends JPopupMenu {
+	public PopTabbedPaneCloser(JTabbedPane pane) {
+		addActionsToJPopUpMenu(this, pane);
+	}
+	
+	public static void addActionsToJPopUpMenu(JPopupMenu menu, JTabbedPane pane) {
 		JMenuItem mntmClose = new JMenuItem("Close");
 		mntmClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pane.remove(pane.getSelectedIndex());
 			}
 		});
-		add(mntmClose);
+		menu.add(mntmClose);
 		
 		JMenuItem mntmCloseOther = new JMenuItem("Close other");
 		mntmCloseOther.addActionListener(new ActionListener() {
@@ -30,14 +33,14 @@ public class PopFastNotesPane extends JPopupMenu {
 		        }
 			}
 		});
-		add(mntmCloseOther);
+		menu.add(mntmCloseOther);
 		JMenuItem mntmCloseAll = new JMenuItem("Close all");
 		mntmCloseAll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pane.removeAll();
 			}
 		});
-		add(mntmCloseAll);
+		menu.add(mntmCloseAll);
 	}
 
 }
