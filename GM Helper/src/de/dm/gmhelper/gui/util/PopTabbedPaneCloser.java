@@ -13,7 +13,6 @@ public class PopTabbedPaneCloser extends JPopupMenu {
 	}
 	
 	public static void addActionsToJPopUpMenu(JPopupMenu menu, JTabbedPane pane) {
-		
 		JMenuItem mntmClose = new JMenuItem("Close");
 		mntmClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

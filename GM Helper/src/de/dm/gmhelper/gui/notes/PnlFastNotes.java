@@ -40,5 +40,9 @@ public class PnlFastNotes extends JPanel {
 		this();
 		textPane.setText(text);
 	}
+	
+	public String getText() {
+		return textPane.getText();
+	}
 
 }

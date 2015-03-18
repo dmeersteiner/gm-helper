@@ -1,6 +1,8 @@
 package de.dm.gmhelper.data.entry;
 
-public class NoteEntry {
+import java.io.Serializable;
+
+public class NoteEntry implements Serializable {
 	
 	private String title;
 	private String text;

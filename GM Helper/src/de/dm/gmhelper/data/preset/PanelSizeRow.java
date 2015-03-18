@@ -1,10 +1,10 @@
 package de.dm.gmhelper.data.preset;
 
-enum PanelSizeColumn {
-	TINY(5), SMALL(10), LARGE(20), BIG(40);
+enum PanelSizeRow {
+	TINY(3), SMALL(5), LARGE(15), BIG(25);
 	private int size;
 	private String toString;
-	private PanelSizeColumn(int size) {
+	private PanelSizeRow(int size) {
 		this.size = size;
 		toString = this.name().toLowerCase()+" ("+size+")";
 	}

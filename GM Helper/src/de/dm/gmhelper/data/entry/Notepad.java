@@ -1,9 +1,10 @@
 package de.dm.gmhelper.data.entry;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Notepad {
+public class Notepad implements Serializable {
 	
 	private List<NoteEntry> noteEntries;
 	

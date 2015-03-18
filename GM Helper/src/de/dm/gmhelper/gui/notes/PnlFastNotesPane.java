@@ -6,7 +6,6 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTabbedPane;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -90,6 +89,18 @@ public class PnlFastNotesPane extends JPanel {
 				panel,
 				"A notepad to take notes during the game",
 				tbpFastNotes.getTabCount());
+	}
+	
+	public Notepad getNotepad() {
+		Notepad notes = new Notepad();
+		List<NoteEntry> list = notes.getNoteEntries();
+		for(int i = 0; i < tbpFastNotes.getTabCount(); ++i) {
+			NoteEntry entry = new NoteEntry();
+			entry.setText(((PnlFastNotes) tbpFastNotes.getComponentAt(i)).getText());
+			entry.setTitle(tbpFastNotes.getTitleAt(i));
+			list.add(entry);
+		}
+		return notes;
 	}
 	
 	private class PopFastNotesPane extends JPopupMenu {
