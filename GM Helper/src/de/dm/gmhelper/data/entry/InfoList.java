@@ -1,17 +1,17 @@
 package de.dm.gmhelper.data.entry;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
-public class InfoList extends InfoEntry {
+public class InfoList {
 
 	private List<InfoEntry> infoEntries;
 	
 	public InfoList() {
-		infoEntries = new LinkedList<InfoEntry>();
+		infoEntries = new ArrayList<InfoEntry>();
 	}
 	
-	public List<InfoEntry> getList() {
+	public List<InfoEntry> getEntries() {
 		return infoEntries;
 	}
 }

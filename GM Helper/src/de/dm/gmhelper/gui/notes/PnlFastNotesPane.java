@@ -14,7 +14,7 @@ import java.util.List;
 
 import javax.swing.border.EmptyBorder;
 
-import de.dm.gmhelper.data.entry.Notepad;
+import de.dm.gmhelper.data.entry.NoteList;
 import de.dm.gmhelper.data.entry.NoteEntry;
 import de.dm.gmhelper.gui.util.GuiUtils;
 import de.dm.gmhelper.gui.util.PopTabbedPaneCloser;
@@ -61,9 +61,9 @@ public class PnlFastNotesPane extends JPanel {
 		tbpFastNotes.setComponentPopupMenu(new PopFastNotesPane());
 	}
 	
-	public void setFastNotes(Notepad notepad) {
+	public void setFastNotes(NoteList notepad) {
 		tbpFastNotes.removeAll();
-		for (NoteEntry entry : notepad.getNoteEntries()) {
+		for (NoteEntry entry : notepad) {
 			addFastNotes(entry);
 		}
 		tbpFastNotes.remove(0);
@@ -91,14 +91,13 @@ public class PnlFastNotesPane extends JPanel {
 				tbpFastNotes.getTabCount());
 	}
 	
-	public Notepad getNotepad() {
-		Notepad notes = new Notepad();
-		List<NoteEntry> list = notes.getNoteEntries();
+	public NoteList getNoteList() {
+		NoteList notes = new NoteList();
 		for(int i = 0; i < tbpFastNotes.getTabCount(); ++i) {
 			NoteEntry entry = new NoteEntry();
 			entry.setText(((PnlFastNotes) tbpFastNotes.getComponentAt(i)).getText());
 			entry.setTitle(tbpFastNotes.getTitleAt(i));
-			list.add(entry);
+			notes.add(entry);
 		}
 		return notes;
 	}
